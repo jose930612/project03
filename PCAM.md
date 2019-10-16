@@ -26,27 +26,36 @@ Este proyecto usara el problema del agente viajero usando el algoritmo de fuerza
 
 Luego se diseñará e implemetará este algoritmo en paralelo(OPENMP) se tomara el tiempo de respuesta para calcular la mejor ruta para 11 nodos  y se comparara con el algoritmo serial buscando optimizar la mayor cantidad de hilos.  
 
-2. Análisis de algoritmo
+2.Análisis de algoritmo:
+========================
+
+Aqui va el analisis del algoritmo serial explicado y analisado 
+ 
 
 
 3.Metodologia de desarrollo 
 ===========================
    3.1 Metodologia Pcam:
    
-   __Problema__:
+   __Problema__: Tenemos un grafo conexo con peso en los vertices y deseamos saber cual es la mejor forma de recorrer todos los nodos pero el crecimiento del problema aumenta con cada nodo que se agrega al problema de forma  O(n!) esto si usamos fuerza bruta evaluando cada posible solucion y comparando. (ver figura 1)
    
-   ![alt tag](https://github.com/jose930612/project03/blob/master/img/Problema.png)
+   ![cat](https://github.com/jose930612/project03/blob/master/img/Problema.png)  
    
-   __particionado__:
+                                  figura(1)
    
-   ![alt tag](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
+   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2))
    
+   ![cat](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
+   
+                                  figura(2)
    __Comunicacion__ :
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
    
-   __Mapeado__:
+                                  figura(3)
+   __Mapeado__: 
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
+                                  figura(4)
    
     
 
