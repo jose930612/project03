@@ -48,7 +48,7 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
         vector <pair <double,double> > nodo = grafo.at(nodoact);
         for(int i = 0; i < nodo.size(); ++i){
             if(!contains(i,visitados) && nodoact!=i){
-                cout << "se fue al nodo: " << i << endl;
+                //cout << "se fue al nodo: " << i << endl;
                 int distancia = nodo.at(i).first;
                 mejorcamino(grafo,control,i,distancia);
             }
