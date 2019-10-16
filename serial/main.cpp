@@ -19,7 +19,7 @@ int main(){
     control.second = 0;
     printGraph(grafo);
     t0=clock();
-    mejorcamino(grafo,control,-1,0,true);
+    elmejorcamino(grafo,control);
     t1=clock();
     double time = (double(t1-t0)/CLOCKS_PER_SEC);
     //cout << vect.size() << endl;
@@ -27,7 +27,14 @@ int main(){
     return 0;
 }
 
-void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int>,int> control, int nodoact, int distot, bool primera){
+void elmejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int>,int> control){
+#pragma omp parallel for
+    for(int i=0; i < grafo.size(); ++i){
+        mejorcamino(grafo,control,i,0);        
+    }
+}
+
+void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int>,int> control, int nodoact, int distot){
     //cout << "nodoact: " << nodoact << endl;
     vector <int> visitados = control.first;
     control.second = control.second + distot;
@@ -38,19 +45,12 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
         //cout << "retorno" << endl;
         return;
     }else{
-        if(primera){
-            #pragma omp parallel for
-            for(int i=0; i < grafo.size(); ++i){
-                mejorcamino(grafo,control,i,0,false);
-            }
-        }else{
-            vector <pair <double,double> > nodo = grafo.at(nodoact);
-            for(int i = 0; i < nodo.size(); ++i){
-                if(!contains(i,visitados) && nodoact!=i){
-                    //cout << "se fue al nodo: " << i << endl;
-                    int distancia = nodo.at(i).first;
-                    mejorcamino(grafo,control,i,distancia,false);
-                }
+        vector <pair <double,double> > nodo = grafo.at(nodoact);
+        for(int i = 0; i < nodo.size(); ++i){
+            if(!contains(i,visitados) && nodoact!=i){
+                cout << "se fue al nodo: " << i << endl;
+                int distancia = nodo.at(i).first;
+                mejorcamino(grafo,control,i,distancia);
             }
         }
     }
