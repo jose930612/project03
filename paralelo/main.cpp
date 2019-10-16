@@ -28,7 +28,7 @@ int main(){
 }
 
 void elmejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int>,int> control){
-//#pragma omp simd
+#pragma omp simd
     for(int i=0; i < grafo.size(); ++i){
         mejorcamino(grafo,control,i,0);        
     }
