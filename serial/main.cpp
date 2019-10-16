@@ -28,7 +28,7 @@ int main(){
 }
 
 void elmejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int>,int> control){
-#pragma omp parallel for
+//#pragma omp parallel for
     for(int i=0; i < grafo.size(); ++i){
         mejorcamino(grafo,control,i,0);        
     }
@@ -46,6 +46,7 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
         return;
     }else{
         vector <pair <double,double> > nodo = grafo.at(nodoact);
+        #pragma omp parallel for
         for(int i = 0; i < nodo.size(); ++i){
             if(!contains(i,visitados) && nodoact!=i){
                 //cout << "se fue al nodo: " << i << endl;
