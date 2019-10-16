@@ -17,7 +17,7 @@ int main(){
     pair<vector<int>,int> control;
     control.first = visitados;
     control.second = 0;
-    //printGraph(grafo);
+    printGraph(grafo);
     t0=clock();
     mejorcamino(grafo,control,-1,0,true);
     t1=clock();
