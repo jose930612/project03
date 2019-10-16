@@ -22,7 +22,7 @@ int main(){
     elmejorcamino(grafo,control);
     t1=clock();
     double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    //cout << vect.size() << endl;
+    cout << vect.size() << endl;
     cout << time << endl;
     return 0;
 }
