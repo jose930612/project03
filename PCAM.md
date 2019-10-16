@@ -1,4 +1,4 @@
-#Universidad Eafit
+*Universidad Eafit*
 
 Curso ST0263 Tópicos Especiales en Telemática, 2019-2
 
