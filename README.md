@@ -27,7 +27,7 @@ dependiendo del numero de nodos que se esten analizando la ejecución podra tard
 
 __Compilacion en Paralelo__
 
- $ cd paralelo
+    $ cd paralelo
        
 En este directorio se encontraran los archivos de correspondientes para la compilacion y se compila con el siguiente comando:
 
