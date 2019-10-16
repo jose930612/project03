@@ -22,7 +22,7 @@ int main(){
     mejorcamino(grafo,control,-1,0,true);
     t1=clock();
     double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << vect.size() << endl;
+    //cout << vect.size() << endl;
     cout << time << endl;
     return 0;
 }
@@ -34,7 +34,7 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
     visitados.push_back(nodoact);
     control.first = visitados;
     if(isdone(grafo.size(), visitados)){
-        vect.push_back(control);
+    //    vect.push_back(control);
         //cout << "retorno" << endl;
         return;
     }else{
