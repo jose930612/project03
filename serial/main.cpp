@@ -39,6 +39,7 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
         return;
     }else{
         if(primera){
+            #pragma omp parallel for
             for(int i=0; i < grafo.size(); ++i){
                 mejorcamino(grafo,control,i,0,false);
             }
