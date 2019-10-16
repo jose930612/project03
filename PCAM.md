@@ -48,11 +48,11 @@ Aqui va el analisis del algoritmo serial explicado y analisado
    ![cat](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
    
                                   figura(2)
-   __Comunicacion__ :
+   __Comunicacion__ : 
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
    
                                   figura(3)
-   __Mapeado__: 
+   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es 4 hilos  por los asignamos 3 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 4)
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
                                   figura(4)
