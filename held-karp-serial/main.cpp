@@ -52,12 +52,15 @@ void getanswer(vector <vector<double> > grafo){
         }
     }
     double answer = INT8_MAX;
-    #pragma omp parallel for simd
-    for (int last=0; last<N-1; ++last) {
-        answer = min( 
-            answer,
-            grafo[last][N-1] + best[ (1<<(N-1))-1 ][last]
-        );
+    #pragma omp parallel 
+    {
+        #pragma omp for simd
+        for (int last=0; last<N-1; ++last) {
+            answer = min( 
+                answer,
+                grafo[last][N-1] + best[ (1<<(N-1))-1 ][last]
+            );
+        }
     }
     cout << answer << endl;
 }
