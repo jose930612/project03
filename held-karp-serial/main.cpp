@@ -40,7 +40,7 @@ void getanswer(vector <vector<double> > grafo){
             } else {
                 // previous vertex was one of the other ones in "visited"
                 int prev_visited = visited ^ 1<<last;
-                #pragma omp parallel for
+               // #pragma omp parallel for
                 for (int prev = 0; prev < N-1; ++prev) {
                     if (!(prev_visited & 1<<prev)) continue;
                     best[visited][last] = min( 
