@@ -36,7 +36,6 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
 |      | Serial-1 |      |
 | ---- | -------- | ---- |
 | nodos | hilos | tiempo |
-| --- | --- | --- |
 | 1   |  | 0s   |
 | 2   |  | 0s   |
 | 3   |  | 0s   |
@@ -47,7 +46,6 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
 | 8   |  | 4.27s |
 | 9   |  | 47.51s |
 | 10  |  | 589.1s |
-
 
 
 3.Metodologia de desarrollo 
