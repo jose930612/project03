@@ -36,6 +36,7 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
 |        Serial-1        |
 | ---------------------- |
 | nodos | hilos | tiempo |
+| ---------------------- |
 |   1   |   -   |   0s   |
 |   2   |   -   |   0s   |
 |   3   |   -   |   0s   |
