@@ -63,7 +63,7 @@ __Compilación held-karp-paralelo:__
        
 En este directorio se encontraran los archivos de correspondientes para la compilacion y se compila con el siguiente comando que solo funciona en c++ v11 :
 
-     $ g++ -std=c++11 leer.cpp main.cpp
+     $ g++ -std=c++11 leer.cpp main.cpp -fopenmp
 
 
 al realizar el anterior comando de compilacion se generara un ejecutable a.out en el mismo directorio el cual complilaremos
