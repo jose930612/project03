@@ -52,7 +52,7 @@ void getanswer(vector <vector<double> > grafo){
         }
     }
     double answer = INT8_MAX;
-    #pragma omp parallel for
+    #pragma omp for simd
     for (int last=0; last<N-1; ++last) {
         answer = min( 
             answer,
