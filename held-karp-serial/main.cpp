@@ -6,6 +6,8 @@
 #include <utility> 
 #include <ctime>
 #include <algorithm>
+#include <cstdint> 
+#include <limits>
 using namespace std;
 
 int main(){
