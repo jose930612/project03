@@ -26,29 +26,27 @@ int main(){
 void getanswer(vector <vector<double> > grafo){
     int N = grafo.size();
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
-    //#pragma omp parallel for
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
-        #pragma omp section{
-            for (int last = 0; last < (N-1); ++last) {
+        for (int last = 0; last < (N-1); ++last) {
  
-                // last visited vertex must be one of the visited vertices
-                if (!(visited & 1<<last)) continue;
+            // last visited vertex must be one of the visited vertices
+            if (!(visited & 1<<last)) continue;
  
-                // try all possibilities for the previous vertex,
-                // pick the best among them
-                if (visited == 1 << last) {
-                    // previous vertex must have been N-1
-                    best[visited][last] = grafo[N-1][last];
-                } else {
-                    // previous vertex was one of the other ones in "visited"
-                    int prev_visited = visited ^ 1<<last;
-                    for (int prev = 0; prev < N-1; ++prev) {
-                        if (!(prev_visited & 1<<prev)) continue;
-                        best[visited][last] = min( 
-                            best[visited][last], 
-                            grafo[last][prev] + best[prev_visited][prev]
-                        );
-                    }
+            // try all possibilities for the previous vertex,
+            // pick the best among them
+            if (visited == 1 << last) {
+                // previous vertex must have been N-1
+                best[visited][last] = grafo[N-1][last];
+            } else {
+                // previous vertex was one of the other ones in "visited"
+                int prev_visited = visited ^ 1<<last;
+                #pragma omp parallel for
+                for (int prev = 0; prev < N-1; ++prev) {
+                    if (!(prev_visited & 1<<prev)) continue;
+                    best[visited][last] = min( 
+                        best[visited][last], 
+                        grafo[last][prev] + best[prev_visited][prev]
+                    );
                 }
             }
         }
