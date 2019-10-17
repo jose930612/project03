@@ -30,8 +30,22 @@ Luego se diseñará e implemetará este algoritmo en paralelo(OPENMP) se tomara 
 ========================
 El algoritmo de fuerza bruta para encontrar el mejor camino en un grafo  es uno de los algoritmos mas ineficientes ya que consume mucha memoria y su tiempo de respuesta es muy costoso ya que este algoritmo es de orden O(n!) aun asi teniendo en cuenta esto vamos a analizar las diferentes caracteristicas.
 
-para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con recursividad de cola (serial 1) y otro sin recursividad usando netamente ciclos (serial2) se tomaron los tiempos de respuesta de ambos algoritmos como se ve a continuación: 
+para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con recursividad de cola (serial 1) y otro sin recursividad usando netamente ciclos (serial2) se tomaron los tiempos de respuesta de ambos algoritmos como se ve a continuación:
 
+
+|        Serial-1        |
+| ---------------------- |
+| nodos | hilos | tiempo |
+|   1   |   -   |   0s   |
+|   2   |   -   |   0s   |
+|   3   |   -   |   0s   |
+|   4   |   -   |   0s   |
+|   5   |   -   |   0s   |
+|   6   |   -   |  0.04s |
+|   7   |   -   |  0.04s |
+|   8   |   -   |  4.27s |
+|   9   |   -   | 47.51s |
+|   10  |   -   | 589.1s |
 
 
 
