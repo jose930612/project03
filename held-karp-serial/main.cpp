@@ -26,9 +26,8 @@ int main(){
 void getanswer(vector <vector<double> > grafo){
     int N = grafo.size();
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
-    #pragma omp parallel for
+    #pragma omp simd
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
-        #pragma omp simd
         for (int last = 0; last < (N-1); ++last) {
  
             // last visited vertex must be one of the visited vertices
