@@ -17,7 +17,7 @@ int main(){
     pair<vector<int>,int> control;
     control.first = visitados;
     control.second = 0;
-    //printGraph(grafo);
+    printGraph(grafo);
     t0=clock();
     elmejorcamino(grafo,control);
     t1=clock();
@@ -40,13 +40,15 @@ void mejorcamino(vector <vector <pair <double,double> > > grafo, pair<vector<int
     control.second = control.second + distot;
     visitados.push_back(nodoact);
     control.first = visitados;
+    cout << nodoact << endl;
     if(isdone(grafo.size(), visitados)){
     //    vect.push_back(control);
-        //cout << "retorno" << endl;
+        cout << "retorno" << endl;
         return;
     }else{
         vector <pair <double,double> > nodo = grafo.at(nodoact);
-        for(int i = 0; i < nodo.size(); ++i){
+        cout << "aqui" << endl;
+        for(int i = 0; i < nodo.size(); i++){
             if(!contains(i,visitados) && nodoact!=i){
                 //cout << "se fue al nodo: " << i << endl;
                 int distancia = nodo.at(i).first;
@@ -62,6 +64,8 @@ bool isdone(int n, vector<int> vec){
 }
 
 bool contains (int x, vector<int> vec){
+    cout << "ff: " << x << endl;
+    cout << vec.size() << endl;
     for(int i = 1; i < vec.size(); i++){
         if(x == vec.at(i)){
             return true;
