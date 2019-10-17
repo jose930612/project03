@@ -7,28 +7,34 @@
 #include <ctime>
 #include <algorithm>
 #include <limits>
-#include <cstdint> 
+#include <cstdint>
+#include <omp.h> 
 using namespace std;
 
 int main(){
-    unsigned t0, t1;
+    //unsigned t0, t1;
     vector <vector<double> > grafo;
     grafo = leer();
     //imprimirgrafo(grafo);
-    t0=clock();
+    //t0=clock();
     getanswer(grafo);
-    t1=clock();
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << time << endl;
+    //t1=clock();
+    //double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    //cout << time << endl;
     return 0;
 }
 
 void getanswer(vector <vector<double> > grafo){
     int N = grafo.size();
+    unsigned t0,t1;
+    t0 = clock();
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
+    omp_set_dynamic(0);
+    #pragma omp parallel for
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
+	//#pragma omp parallel for
         for (int last = 0; last < (N-1); ++last) {
- 
+
             // last visited vertex must be one of the visited vertices
             if (!(visited & 1<<last)) continue;
  
@@ -40,8 +46,8 @@ void getanswer(vector <vector<double> > grafo){
             } else {
                 // previous vertex was one of the other ones in "visited"
                 int prev_visited = visited ^ 1<<last;
-               // #pragma omp parallel for
-                for (int prev = 0; prev < N-1; ++prev) {
+                //#pragma omp parallel for
+                for (int prev = 0; prev < N-1; ++prev){
                     if (!(prev_visited & 1<<prev)) continue;
                     best[visited][last] = min( 
                         best[visited][last], 
@@ -52,13 +58,17 @@ void getanswer(vector <vector<double> > grafo){
         }
     }
     double answer = INT8_MAX;
+    //#pragma omp parallel for
     for (int last=0; last<N-1; ++last) {
         answer = min( 
                     answer,
                     grafo[last][N-1] + best[ (1<<(N-1))-1 ][last]
                 );
     }
+    t1 = clock();
     cout << answer << endl;
+    double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    cout << time << endl;
 }
 
 
