@@ -33,19 +33,15 @@ El algoritmo de fuerza bruta para encontrar el mejor camino en un grafo  es uno 
 para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con recursividad de cola (serial 1) y otro sin recursividad usando netamente ciclos (serial2) se tomaron los tiempos de respuesta de ambos algoritmos como se ve a continuación:
 
 
-|      | Serial-1 |      |
-| ---- | -------- | ---- |
-| nodos | hilos | tiempo |
-| 1   |  | 0s   |
-| 2   |  | 0s   |
-| 3   |  | 0s   |
-| 4   |  | 0s   |
-| 5   |  | 0s   |
-| 6   |  | 0.04s |
-| 7   |  | 0.04s |
-| 8   |  | 4.27s |
-| 9   |  | 47.51s |
-| 10  |  | 589.1s |
+|      | Serial   |        |  Paralelo |       |SpeedUP|Eficiencia|
+| ---- | -------- | ----   |  -------  |-----  |-------| ---------|
+| nodos  | Hilos  | Tiempo |   Hilos   |Tiempo | ||
+| 24     |   1    |54.4 seg |   24      |   11.8 seg    |||
+| 25     |   1    |112.66 seg|   24      | 22.82 seg      |||
+| 26     |   1    |255.6 seg|   24      | 46.871 seg      |||
+| 27     |   1    |570.26 seg|   24      | 83.4 seg      |||
+| 28     |   1    |4216.28 seg|   24      | 430.4 seg      |||
+
 
 
 3.Metodologia de desarrollo 
