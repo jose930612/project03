@@ -62,7 +62,7 @@ Ya de cara al algoritmo podemos ver como hay 3 ciclos anidados y cada tarea corr
    
                                   figura(2)
                                   
-   ![cat](https://github.com/jose930612/project03/blob/master/img/tareas.png)
+   ![cat](https://github.com/jose930612/project03/blob/master/img/tareasnew.png)
    
                                   figura(3)
        
