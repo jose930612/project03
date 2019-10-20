@@ -48,7 +48,7 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
 ===========================
    3.1 Metodologia Pcam:
    
-   __Problema__: Tenemos un grafo conexo con peso en los vertices y deseamos saber cual es la mejor forma de recorrer todos los nodos pero el crecimiento del problema aumenta con cada nodo que se agrega al problema de forma  O(n!) esto si usamos fuerza bruta evaluando cada posible solucion y comparando. (ver figura 1)
+   __Problema__: Tenemos un grafo conexo con peso en los vertices y deseamos saber cual es la menor distancia con la cual se pueden recorrer todos los nodos pero el crecimiento del problema aumenta con cada nodo que se agrega al problema de forma  O(n!) esto si usamos fuerza bruta evaluando cada posible solucion y comparando. (ver figura 1)
    
    ![cat](https://github.com/jose930612/project03/blob/master/img/Problema.png)  
    
