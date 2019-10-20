@@ -58,23 +58,29 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
    
                                   figura(1)
    
-   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2)), en la figura 3 podemos ver como estas definidas las tareas, primera tarea consiste en separar el nodo inicial del subconjunto compuesto por los demas nodos, la segunda tarea consiste en a su vez dividir esos subconjuntos en subconjuntos mas pequeños, la tercera tarea consiste en evaluar distancias cuando solo quedan 2 nodos en esos subconjuntos y guardar la mas pequeña, estas tareas se pueden ver en la figura 3
+   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2)), en la figura 3 podemos ver como estas definidas las tareas, primera tarea consiste en separar el nodo inicial del subconjunto compuesto por los demas nodos, la segunda tarea consiste en a su vez dividir esos subconjuntos en subconjuntos mas pequeños, la tercera tarea consiste en evaluar distancias cuando solo quedan 2 nodos en esos subconjuntos y guardar la mas pequeña, estas tareas se pueden ver en la figura 3.
+   
+Ya de cara al algoritmo podemos ver como hay 3 ciclos anidados y cada tarea corresponde a unos de esos ciclos (ver figura 4), ya que la tarea T2 divide el problema en N-1 subproblemas, decidimos paralelizar esta tarea, al ser la que menos va crecer con respecto a la cantidad de nodos, ya que las demas crecen con una velocidad de 2^n-1, siendo n la cnatidad de nodos del grafo, por lo que incluso paralelizandolas, no se notaria una mejoria, almenos no con una buena eficiencia
    
    ![cat](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
    
                                   figura(2)
                                   
-   ![tag](https://github.com/jose930612/project03/blob/master/img/tareas.png)
+   ![cat](https://github.com/jose930612/project03/blob/master/img/tareas.png)
    
                                   figura(3)
+       
+   ![cat](https://github.com/jose930612/project03/blob/master/img/tareasAlgoritmo.png)
+   
+                                 figura(4)
   __Comunicacion__ : 
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
    
-                                  figura(3)
-   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es igual a la cantidad de nodos que tiene el grafo,  por los asignamos n-1 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 4)
+                                  figura(5)
+   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es igual a la cantidad de nodos que tiene el grafo,  por los asignamos n-1 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 6)
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
-                                  figura(4)
+                                  figura(6)
    
    
  
