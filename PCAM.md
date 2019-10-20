@@ -58,12 +58,16 @@ para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con rec
    
                                   figura(1)
    
-   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2))
+   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2)), en la figura 3 podemos ver como estas definidas las tareas, primera tarea consiste en separar el nodo inicial del subconjunto compuesto por los demas nodos, la segunda tarea consiste en a su vez dividir esos subconjuntos en subconjuntos mas pequeños, la tercera tarea consiste en evaluar distancias cuando solo quedan 2 nodos en esos subconjuntos y guardar la mas pequeña, estas tareas se pueden ver en la figura 3
    
    ![cat](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
    
                                   figura(2)
-   __Comunicacion__ : 
+                                  
+   ![tag](https://github.com/jose930612/project03/blob/master/img/tareas.png)
+   
+                                  figura(3)
+  __Comunicacion__ : 
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
    
                                   figura(3)
