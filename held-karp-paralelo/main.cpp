@@ -27,9 +27,9 @@ int main(){
 void getanswer(vector <vector<double> > grafo){
     int N = grafo.size();
     unsigned t0,t1;
-    t0 = clock();
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
     omp_set_dynamic(0);
+    t0 = clock();
     #pragma omp parallel for
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
 	//#pragma omp parallel for
@@ -58,7 +58,7 @@ void getanswer(vector <vector<double> > grafo){
         }
     }
     double answer = INT8_MAX;
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int last=0; last<N-1; ++last) {
         answer = min( 
                     answer,

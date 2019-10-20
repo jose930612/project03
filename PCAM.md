@@ -28,9 +28,24 @@ Luego se diseñará e implemetará este algoritmo en paralelo(OPENMP) se tomara 
 
 2.Análisis de algoritmo:
 ========================
+El algoritmo de fuerza bruta para encontrar el mejor camino en un grafo  es uno de los algoritmos mas ineficientes ya que consume mucha memoria y su tiempo de respuesta es muy costoso ya que este algoritmo es de orden O(n!) aun asi teniendo en cuenta esto vamos a analizar las diferentes caracteristicas.
 
-Aqui va el analisis del algoritmo serial explicado y analisado 
- 
+para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con recursividad de cola (serial 1) y otro sin recursividad usando netamente ciclos (serial2) se tomaron los tiempos de respuesta de ambos algoritmos como se ve a continuación:
+
+
+|      | Serial-1 |      |
+| ---- | -------- | ---- |
+| nodos | hilos | tiempo |
+| 1   |  | 0s   |
+| 2   |  | 0s   |
+| 3   |  | 0s   |
+| 4   |  | 0s   |
+| 5   |  | 0s   |
+| 6   |  | 0.04s |
+| 7   |  | 0.04s |
+| 8   |  | 4.27s |
+| 9   |  | 47.51s |
+| 10  |  | 589.1s |
 
 
 3.Metodologia de desarrollo 
@@ -52,17 +67,12 @@ Aqui va el analisis del algoritmo serial explicado y analisado
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
    
                                   figura(3)
-   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es 4 hilos  por los asignamos 3 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 4)
+   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es igual a la cantidad de nodos que tiene el grafo,  por los asignamos n-1 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 4)
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
                                   figura(4)
    
-    
-
-
-4.Esquema de algoritmo paralelo
-============================
- 
+   
  
  
     
