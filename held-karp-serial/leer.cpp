@@ -9,7 +9,7 @@
 using namespace std;
 
 
-vector <vector<double> >  leer(){
+vector <vector<double> >  leer(int n_nodes){
     vector <vector<double> > pesos;
     vector<pair<double,double> > nodos;
     int n;
@@ -19,6 +19,10 @@ vector <vector<double> >  leer(){
     fe >> x;
     fe >> x;
     n = atoi(x.c_str());
+    if (n_nodes > 0){
+        n = n_nodes;
+    }
+    
     nodos = getnodos(fe,n);
     pair <double,double> nodoact = nodos.at(0);
     //cout << nodoact.first << endl;

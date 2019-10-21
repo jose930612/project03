@@ -11,16 +11,16 @@
 #include <omp.h> 
 using namespace std;
 
-int main(){
-    //unsigned t0, t1;
+int main(int argc, char* argv[]){
     vector <vector<double> > grafo;
-    grafo = leer();
-    //imprimirgrafo(grafo);
-    //t0=clock();
+    int n_nodes = 0;
+    if (argv[1]){
+        n_nodes = atoi(argv[1]);
+    }
+    grafo = leer(n_nodes);
+    
     getanswer(grafo);
-    //t1=clock();
-    //double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    //cout << time << endl;
+    
     return 0;
 }
 
@@ -29,10 +29,9 @@ void getanswer(vector <vector<double> > grafo){
     unsigned t0,t1;
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
     omp_set_dynamic(0);
-    t0 = clock();
+    
     #pragma omp parallel for
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
-	//#pragma omp parallel for
         for (int last = 0; last < (N-1); ++last) {
 
             // last visited vertex must be one of the visited vertices
@@ -46,7 +45,6 @@ void getanswer(vector <vector<double> > grafo){
             } else {
                 // previous vertex was one of the other ones in "visited"
                 int prev_visited = visited ^ 1<<last;
-                //#pragma omp parallel for
                 for (int prev = 0; prev < N-1; ++prev){
                     if (!(prev_visited & 1<<prev)) continue;
                     best[visited][last] = min( 
@@ -65,10 +63,7 @@ void getanswer(vector <vector<double> > grafo){
                     grafo[last][N-1] + best[ (1<<(N-1))-1 ][last]
                 );
     }
-    t1 = clock();
-    cout << answer << endl;
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << time << endl;
+    cout << "Sortes path: " << answer << endl;
 }
 
 

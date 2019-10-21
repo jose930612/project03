@@ -1,0 +1,92 @@
+No. of Threads 10
+	 - No. of nodes 10
+
+real	0m0.023s
+user	0m0.036s
+sys	0m0.006s
+-------------------------
+	 - No. of nodes 11
+
+real	0m0.009s
+user	0m0.055s
+sys	0m0.005s
+-------------------------
+	 - No. of nodes 12
+
+real	0m0.015s
+user	0m0.108s
+sys	0m0.007s
+-------------------------
+	 - No. of nodes 13
+
+real	0m0.026s
+user	0m0.208s
+sys	0m0.012s
+-------------------------
+	 - No. of nodes 14
+
+real	0m0.054s
+user	0m0.469s
+sys	0m0.017s
+-------------------------
+	 - No. of nodes 15
+
+real	0m0.102s
+user	0m0.912s
+sys	0m0.031s
+-------------------------
+	 - No. of nodes 16
+
+real	0m0.207s
+user	0m1.864s
+sys	0m0.052s
+-------------------------
+	 - No. of nodes 17
+
+real	0m0.437s
+user	0m4.003s
+sys	0m0.094s
+-------------------------
+	 - No. of nodes 18
+
+real	0m0.901s
+user	0m8.296s
+sys	0m0.181s
+-------------------------
+	 - No. of nodes 19
+
+real	0m1.957s
+user	0m17.702s
+sys	0m0.671s
+-------------------------
+	 - No. of nodes 20
+
+real	0m4.446s
+user	0m40.512s
+sys	0m1.292s
+-------------------------
+	 - No. of nodes 21
+
+real	0m8.491s
+user	1m16.833s
+sys	0m3.014s
+-------------------------
+	 - No. of nodes 22
+
+real	0m17.584s
+user	2m37.419s
+sys	0m7.129s
+-------------------------
+	 - No. of nodes 23
+
+real	0m38.845s
+user	5m46.933s
+sys	0m15.261s
+-------------------------
+	 - No. of nodes 24
+
+real	1m23.348s
+user	12m15.960s
+sys	0m35.454s
+-------------------------
+	 - No. of nodes 25

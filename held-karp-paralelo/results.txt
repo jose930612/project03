@@ -1,0 +1,53 @@
+No. of Threads 10
+	 - No. of nodes 10
+Sortes path: 127
+-------------------------
+	 - No. of nodes 11
+Sortes path: 127
+-------------------------
+	 - No. of nodes 12
+Sortes path: 127
+-------------------------
+	 - No. of nodes 13
+Sortes path: 127
+-------------------------
+	 - No. of nodes 14
+Sortes path: 127
+-------------------------
+	 - No. of nodes 15
+Sortes path: 127
+-------------------------
+	 - No. of nodes 16
+Sortes path: 127
+-------------------------
+	 - No. of nodes 17
+Sortes path: 127
+-------------------------
+	 - No. of nodes 18
+Sortes path: 127
+-------------------------
+	 - No. of nodes 19
+Sortes path: 127
+-------------------------
+	 - No. of nodes 20
+Sortes path: 127
+-------------------------
+	 - No. of nodes 21
+Sortes path: 127
+-------------------------
+	 - No. of nodes 22
+Sortes path: 127
+-------------------------
+	 - No. of nodes 23
+Sortes path: 127
+-------------------------
+	 - No. of nodes 24
+Sortes path: 127
+-------------------------
+	 - No. of nodes 25
+Sortes path: 127
+-------------------------
+	 - No. of nodes 26
+Sortes path: 127
+-------------------------
+	 - No. of nodes 27
