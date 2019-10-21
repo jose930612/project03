@@ -11,25 +11,25 @@
 #include <omp.h> 
 using namespace std;
 
-int main(){
-    //unsigned t0, t1;
+int main(int argc, char* argv[]){
     vector <vector<double> > grafo;
-    grafo = leer();
-    //imprimirgrafo(grafo);
-    //t0=clock();
+    int n_nodes = 0;
+    if (argv[1]){
+        n_nodes = atoi(argv[1]);
+    }
+    grafo = leer(n_nodes);
+    
     getanswer(grafo);
-    //t1=clock();
-    //double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    //cout << time << endl;
+    
     return 0;
 }
 
 void getanswer(vector <vector<double> > grafo){
     int N = grafo.size();
     unsigned t0,t1;
-    t0 = clock();
     vector< vector<double> > best( 1<<(N-1), vector<double>( N, INT8_MAX ) );
     omp_set_dynamic(0);
+    t0 = clock();
     #pragma omp parallel for
     for (int visited = 1; visited < (1<<(N-1)); ++visited) {
 	//#pragma omp parallel for
@@ -58,7 +58,7 @@ void getanswer(vector <vector<double> > grafo){
         }
     }
     double answer = INT8_MAX;
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int last=0; last<N-1; ++last) {
         answer = min( 
                     answer,
@@ -66,9 +66,9 @@ void getanswer(vector <vector<double> > grafo){
                 );
     }
     t1 = clock();
-    cout << answer << endl;
+    cout << "Sortes path: " << answer << endl;
     double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << time << endl;
+    // cout << time << endl;
 }
 
 

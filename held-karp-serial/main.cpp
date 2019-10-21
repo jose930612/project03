@@ -10,16 +10,22 @@
 #include <cstdint> 
 using namespace std;
 
-int main(){
+int main(int argc, char* argv[]){
     unsigned t0, t1;
     vector <vector<double> > grafo;
-    grafo = leer();
+
+    int n_nodes = 0;
+    if (argv[1]){
+        n_nodes = atoi(argv[1]);
+    }
+
+    grafo = leer(n_nodes);
     //imprimirgrafo(grafo);
-    t0=clock();
+    // t0=clock();
     getanswer(grafo);
-    t1=clock();
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << time << endl;
+    // t1=clock();
+    // double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    // cout << time << endl;
     return 0;
 }
 
