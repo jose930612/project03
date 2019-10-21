@@ -77,10 +77,6 @@ Ya de cara al algoritmo podemos ver como hay 3 ciclos anidados y cada tarea corr
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
                                   figura(6)
-   
-   
- 
- 
-    
-    
-
+   4.Analisis de rendimiento 
+===========================
+[Presentación de analisis de rendimiento](https://github.com/jose930612/project03/blob/master/Speed%20up%20-%20Efficiency.pptx)
