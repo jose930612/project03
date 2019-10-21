@@ -28,41 +28,57 @@ Luego se diseñará e implemetará este algoritmo en paralelo(OPENMP) se tomara 
 
 2.Análisis de algoritmo:
 ========================
+El algoritmo de fuerza bruta para encontrar el mejor camino en un grafo  es uno de los algoritmos mas ineficientes ya que consume mucha memoria y su tiempo de respuesta es muy costoso ya que este algoritmo es de orden O(n!) aun asi teniendo en cuenta esto vamos a analizar las diferentes caracteristicas.
 
-Aqui va el analisis del algoritmo serial explicado y analisado 
- 
+para este problema usamos dos algoritmos , ambos usando fuerza ,pero uno con recursividad de cola (serial 1) y otro sin recursividad usando netamente ciclos (serial2) se tomaron los tiempos de respuesta de ambos algoritmos como se ve a continuación:
+
+
+|      | Serial   |        |  Paralelo |       |SpeedUP|Eficiencia|
+| ---- | -------- | ----   |  -------  |-----  |-------| ---------|
+| nodos  | Hilos  | Tiempo |   Hilos   |Tiempo | ||
+| 24     |   1    |54.4 seg |   24      |   11.8 seg    |||
+| 25     |   1    |112.66 seg|   24      | 22.82 seg      |||
+| 26     |   1    |255.6 seg|   24      | 46.871 seg      |||
+| 27     |   1    |570.26 seg|   24      | 83.4 seg      |||
+| 28     |   1    |4216.28 seg|   24      | 430.4 seg      |||
+
 
 
 3.Metodologia de desarrollo 
 ===========================
    3.1 Metodologia Pcam:
    
-   __Problema__: Tenemos un grafo conexo con peso en los vertices y deseamos saber cual es la mejor forma de recorrer todos los nodos pero el crecimiento del problema aumenta con cada nodo que se agrega al problema de forma  O(n!) esto si usamos fuerza bruta evaluando cada posible solucion y comparando. (ver figura 1)
+   __Problema__: Tenemos un grafo conexo con peso en los vertices y deseamos saber cual es la menor distancia con la cual se pueden recorrer todos los nodos pero el crecimiento del problema aumenta con cada nodo que se agrega al problema de forma  O(n!) esto si usamos fuerza bruta evaluando cada posible solucion y comparando. (ver figura 1)
    
    ![cat](https://github.com/jose930612/project03/blob/master/img/Problema.png)  
    
                                   figura(1)
    
-   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2))
+   __particionado__: Se particiono el problema en n subgrafos pertenecientes al grafo del problema incial de esta manera poder visualizar de manera mas simple el problema (divide y venceras(ver figura 2)), en la figura 3 podemos ver como estas definidas las tareas, primera tarea consiste en separar el nodo inicial del subconjunto compuesto por los demas nodos, la segunda tarea consiste en a su vez dividir esos subconjuntos en subconjuntos mas pequeños, la tercera tarea consiste en evaluar distancias cuando solo quedan 2 nodos en esos subconjuntos y guardar la mas pequeña, estas tareas se pueden ver en la figura 3.
+   
+Ya de cara al algoritmo podemos ver como hay 3 ciclos anidados y cada tarea corresponde a unos de esos ciclos (ver figura 4), ya que la tarea T2 divide el problema en N-1 subproblemas, decidimos paralelizar esta tarea, al ser la que menos va crecer con respecto a la cantidad de nodos, ya que las demas crecen con una velocidad de 2^n-1, siendo n la cnatidad de nodos del grafo, por lo que incluso paralelizandolas, no se notaria una mejoria, almenos no con una buena eficiencia
    
    ![cat](https://github.com/jose930612/project03/blob/master/img/Particionado.png)
    
                                   figura(2)
-   __Comunicacion__ : 
-   ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
+                                  
+   ![cat](https://github.com/jose930612/project03/blob/master/img/tareasnew1.png)
    
                                   figura(3)
-   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es 4 hilos  por los asignamos 3 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 4)
+       
+   ![cat](https://github.com/jose930612/project03/blob/master/img/tareasAlgor.png)
+   
+                                 figura(4)
+  __Comunicacion__ : 
+   ![alt tag](https://github.com/jose930612/project03/blob/master/img/Comunicacion.png)
+   
+                                  figura(5)
+   __Mapeado__: haciendo las pruebas correspondientes llegamos a la conclusión que el optimo numero de hilos que se podian usar para lograr la mayor eficiencia es igual a la cantidad de nodos que tiene el grafo,  por los asignamos n-1 de ellos a realizar los subgrafos y el hilo sobrante  a realizar el analisis del grafo principal y comparar los resultados dados por los grafos anteriores. por fines de rendimiento se decidio solo paralelizar hasta el segundo nivel de grafos para evitar dependencia de cola . (ver figura 6)
    ![alt tag](https://github.com/jose930612/project03/blob/master/img/Mapeado.png)
    
-                                  figura(4)
+                                  figura(6)
    
-    
-
-
-4.Esquema de algoritmo paralelo
-============================
- 
+   
  
  
     
